@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            margin: 250px;
+        }
+    </style>
+
+</head>
+
+<body onload="startTime()">
+
+    <h1>
+        <div id="clock"></div>
+    </h1>
+
+
+    <script type="text/javascript">
+
+        function startTime() {
+
+            var today = new Date();
+
+            var hr = today.getHours();
+
+            var min = today.getMinutes();
+
+            var sec = today.getSeconds();
+
+            //Adding a zero in front of numbers < 10
+
+            hr = addingZero(hr);
+
+            min = addingZero(min);
+
+            sec = addingZero(sec);
+
+            document.getElementById("clock").innerHTML = hr + " : " + min + " : " + sec;
+
+            var time = setTimeout(function () {
+
+                startTime()
+
+            }, 500);
+
+        }
+
+        function addingZero(i) {
+
+            if (i < 10) {
+
+                i = "0" + i;
+
+            }
+
+            return i;
+
+        }
+
+    </script>
+
+</body>
+
+</html>
